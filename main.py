@@ -13,6 +13,7 @@ from functions.task_functions import DELETE, COMPLETE
 from functions.task_functions import add_task, show_pending_tasks, delete_task, delete_button, cancel, complete_task, complete_button
 from functions.reminders_functions import NAME,DAY,HOUR,MINUTE
 from functions.reminders_functions import reminder_name, get_reminder_name, get_day_frequency_buttons, get_hour, get_minute, save_and_finish
+from functions.menu import menu
 
 #BOT TOKEN
 #---------------------------------------------------------------------------------------------------
@@ -33,7 +34,7 @@ def main():
     persistence.load_data() #load user´s data
   
     #---------------------------------------------------------------------------------------------------
-    app = ApplicationBuilder().token(BOT_TOKEN).build()
+    app = ApplicationBuilder().token(BOT_TOKEN).post_init(menu).build()
 
 
     #Handlers
