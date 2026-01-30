@@ -77,3 +77,11 @@ async def delete_user(update:Update, context):
     #Si no está en el sistema, se le dice que no está registrado
     else:
         await update.message.reply_text(f"No eres un usuario registrado")
+
+
+
+    #---------------------------------------------------------------------------------------------------
+
+async def send_animation(update:Update, context):
+     chat_id = update.effective_chat.id
+     await context.bot.send_sticker(chat_id = chat_id, sticker = "assets/characters/mage/female_wizard_01.webm")

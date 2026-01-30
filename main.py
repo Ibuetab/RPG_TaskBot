@@ -8,7 +8,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ConversationHandler
 #---------------------------------------------------------------------------------------------------
 import data.persistence as persistence
 from data.time_zone import ZONE, DIAS
-from functions.basic_functions import start, help, delete_user
+from functions.basic_functions import start, delete_user, send_animation
 from functions.task_functions import TASK_NAME, DELETE, COMPLETE
 from functions.task_functions import new_task, add_task, show_pending_tasks, delete_task, delete_button, cancel, complete_task, complete_button
 from functions.reminders_functions import NAME,DAY,HOUR,MINUTE
@@ -40,9 +40,9 @@ def main():
     #Handlers
     #---------------------------------------------------------------------------------------------------
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("help", help))
     app.add_handler(CommandHandler("showtasks", show_pending_tasks))
     app.add_handler(CommandHandler("deluser", delete_user))
+    app.add_handler(CommandHandler("mage", send_animation))
 
 
 
