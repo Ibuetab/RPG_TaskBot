@@ -1,4 +1,7 @@
-# Python Telegram TaskBot
+# <img width="99" height="101" alt="espadas-ezgif com-gif-maker (1) (1)" src="https://github.com/user-attachments/assets/2b223684-1a8c-4892-b718-ee356fbfa3a1" /> RPG TaskBot <img width="99" height="101" alt="espadas-ezgif com-gif-maker (1) (1)" src="https://github.com/user-attachments/assets/16710121-78cc-4480-9579-0dad964cc930" />
+
+
+
 
 ## Spanish
 La idea de este bot surge de la necesidad de mejorar la productividad mediante tareas y recordatorios, usando al mismo como herramienta para dicho fin.
