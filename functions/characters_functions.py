@@ -5,6 +5,9 @@ from telegram.ext import CallbackContext, ConversationHandler
 #---------------------------------------------------------------------------------------------------
 import data.persistence as persistence
 from functions.basic_functions import generate_id
+from functions.character_data import male_warrior, female_warrior, male_mage, female_mage
+
+
 
 #Función para mostrar la galeria de personajes
 async def show_characters(update:Update,context:CallbackContext):
