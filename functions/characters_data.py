@@ -15,7 +15,6 @@ male_mage_01 = "assets/characters/mage/male_mage_01.webm"
 female_mage_01 ="assets/characters/mage/female_mage_01.webm"
 
 
-
 #Definimos las funciones que rellenan el json de los personajes al seleccionarlos
 #GUERREROS
 #---------------------------------------------------------------------------------------------------
@@ -26,8 +25,10 @@ async def male_warrior(update:Update,context):
     user_id = generate_id(chat_id)
     user = update.effective_user.first_name
 
+    sticker_id = update.message.sticker.file_id
+
     persistence.CHARACTER[user_id] = {
-             'character_id': "01",
+             'character_id': sticker_id,
              'character_name':user,
              'character_img': "assets/characters/warrior/male_warrior_01.webm",
              'character_type':"male_mage",
@@ -51,8 +52,10 @@ async def female_warrior(update:Update,context):
     user_id = generate_id(chat_id)
     user = update.effective_user.first_name
 
+    sticker_id = update.message.sticker.file_id
+
     persistence.CHARACTER[user_id] = {
-             'character_id': "01",
+             'character_id': sticker_id,
              'character_name':user,
              'character_img': "assets/characters/warrior/female_warrior_01.webm",
              'character_type':"male_mage",
@@ -80,8 +83,10 @@ async def male_mage(update:Update,context):
     user_id = generate_id(chat_id)
     user = update.effective_user.first_name
 
+    sticker_id = update.message.sticker.file_id
+
     persistence.CHARACTER[user_id] = {
-             'character_id': "01",
+             'character_id': sticker_id,
              'character_name':user,
              'character_img': "assets/characters/mage/male_mage_01.webm",
              'character_type':"male_mage",
@@ -104,8 +109,10 @@ async def female_mage(update:Update,context):
     user_id = generate_id(chat_id)
     user = update.effective_user.first_name
 
+    sticker_id = update.message.sticker.file_id
+
     persistence.CHARACTER[user_id] = {
-             'character_id': "01",
+             'character_id': sticker_id,
              'character_name':user,
              'character_img': "assets/characters/mage/female_mage_01.webm",
              'character_type':"male_mage",
