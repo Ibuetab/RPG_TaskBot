@@ -36,14 +36,14 @@ async def start(update:Update, context):
             "completed_tasks": []
         }
 
-        await context.bot.send_message(chat_id = chat_id, text=f"Hola, {user}, utiliza el comando /help para ver una lista de comandos disponibles")
+        await context.bot.send_message(chat_id = chat_id, text=f"Hola, {user}, utiliza el menú para ver una lista de comandos disponibles")
         print(f"DEBUG: Nuevo usuario registrado: {user}")
 
 
     else:
         await context.bot.send_message(
             chat_id=chat_id,
-            text="Ya estás registrado. Usa el comando /help para ver las opciones disponibles"
+            text="Ya estás registrado. Usa el menú para ver las opciones disponibles"
         )
     
     for key in persistence.REGISTERED_USERS:

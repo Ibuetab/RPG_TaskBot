@@ -7,8 +7,16 @@ from functions.basic_functions import generate_id
 
 
 #DEFINIR PERSONAJES
-#Definimos las funciones que rellenan el json de los personajes al seleccionarlos
 
+#Definimos las rutas de las imágenes de los personajes que se usaran para la función show_characters definida en characters_functions.py y SOLO PARA MOSTRAR
+male_warrior_01 = "assets/characters/warrior/male_warrior_01.webm"
+female_warrior_01 ="assets/characters/warrior/female_warrior_01.webm"
+male_mage_01 = "assets/characters/mage/male_mage_01.webm"
+female_mage_01 ="assets/characters/mage/female_mage_01.webm"
+
+
+
+#Definimos las funciones que rellenan el json de los personajes al seleccionarlos
 #GUERREROS
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------

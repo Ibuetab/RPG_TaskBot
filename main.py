@@ -15,7 +15,7 @@ from functions.reminders_functions import NAME,DAY,HOUR,MINUTE
 from functions.reminders_functions import reminder_name, get_reminder_name, get_day_frequency_buttons, get_hour, get_minute, save_and_finish
 from functions.menu import menu
 
-from functions.characters_data import male_mage
+from functions.characters_functions import show_characters
 
 #BOT TOKEN
 #---------------------------------------------------------------------------------------------------
@@ -46,7 +46,7 @@ def main():
     app.add_handler(CommandHandler("deluser", delete_user))
 
 
-    app.add_handler(CommandHandler("mage", male_mage))
+    app.add_handler(CommandHandler("mage", show_characters))
 
 
 
