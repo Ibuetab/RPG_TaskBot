@@ -25,17 +25,19 @@ async def show_characters(update:Update,context:CallbackContext):
     if user_id not in persistence.REGISTERED_USERS:
         await context.bot.send_message(chat_id=chat_id, text=f"Debes registrarte primero")
 
+    #Botones de Anterior y Siguiente
     else:
         buttons = [
-            InlineKeyboardButton("Previous", callback_data="Previous"),
+            InlineKeyboardButton("Previous", callback_data="PREVIOUS"),
             InlineKeyboardButton("Next", callback_data="NEXT")
         ]
 
         keyboard.append(buttons)
         reply_markup = InlineKeyboardMarkup(keyboard)
 
+
         for character in character_list:
 
             await context.bot.send_sticker(chat_id = chat_id, sticker = character)
-            await update.message.reply_text(text=f"Hola",reply_markup=reply_markup)
+            await update.message.reply_text(text=f"Personaje",reply_markup=reply_markup)
 
