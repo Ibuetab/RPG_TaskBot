@@ -15,7 +15,7 @@ from functions.reminders_functions import NAME,DAY,HOUR,MINUTE
 from functions.reminders_functions import reminder_name, get_reminder_name, get_day_frequency_buttons, get_hour, get_minute, save_and_finish
 from functions.menu import menu
 
-from functions.characters_functions import show_characters
+from functions.characters_functions import show_characters, characters_buttons
 
 #BOT TOKEN
 #---------------------------------------------------------------------------------------------------
@@ -47,6 +47,7 @@ def main():
 
 
     app.add_handler(CommandHandler("mage", show_characters))
+    app.add_handler(CallbackQueryHandler(characters_buttons, pattern="^(NEXT_|PREV_|SELECT_)"))
 
 
 
