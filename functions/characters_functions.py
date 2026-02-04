@@ -1,7 +1,6 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, InputMedia
 from telegram.ext import CallbackContext, ConversationHandler
 
-
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 import data.persistence as persistence
@@ -10,8 +9,8 @@ from functions.basic_functions import generate_id
 from functions.characters_data import male_warrior_01, female_warrior_01, male_mage_01, female_mage_01
 from functions.characters_data import male_warrior, female_warrior, male_mage, female_mage
 
-
-
+#---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
 
 #Lista de personajes
 character_list = [male_warrior_01, female_warrior_01, male_mage_01, female_mage_01]
@@ -25,6 +24,9 @@ character_select = {
 
 character_type = ["Guerrero", "Guerrera", "Mago", "Maga"]
 
+#---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
+
 #Muestra el primer personaje de la lista, y a partir de ahi, los demás
 @verify_user
 async def show_characters(update: Update, context: CallbackContext):
@@ -33,7 +35,6 @@ async def show_characters(update: Update, context: CallbackContext):
     
     index = 0  #La posición del primer personaje de la lista
 
-    
     #Botones de Anterior, Siguiente y Seleccionar
     keyboard = [
             [InlineKeyboardButton(character_type[index], callback_data="ignore")],
@@ -60,12 +61,10 @@ async def characters_buttons(update: Update, context: CallbackContext):
         return
 
     await query.answer() 
-
-    
+ 
     data = query.data.split("_") #Split para que separe el data y obtenga NEXT O PREV con el índice separado ([NEXT, 0] [PREV, 0])
     accion = data[0] #Primera posición de los data obtenidos, o sea, NEXT o PREV
     indice_actual = int(data[1]) #Se convierte a int la segunda posición del data obtenido, que fue 0, que se guardó en la variable index de la función anterior
-
 
     #Calculamos los índices
     if accion == "NEXT":
@@ -80,8 +79,6 @@ async def characters_buttons(update: Update, context: CallbackContext):
                 character_selected = list(character_select.values())[i]
                 await character_selected(update,context)
         return
-
-
 
     #Borra el Sticker actual y muestra el siguiente, dando la sensación de dinamismo 
     await query.message.delete()
@@ -103,4 +100,5 @@ async def characters_buttons(update: Update, context: CallbackContext):
         reply_markup=InlineKeyboardMarkup(nuevo_keyboard)
         )
     
-    
+#---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------

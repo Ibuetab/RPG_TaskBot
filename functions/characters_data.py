@@ -5,7 +5,6 @@ from telegram import Update
 import data.persistence as persistence
 from functions.basic_functions import generate_id
 
-
 #DEFINIR PERSONAJES
 
 #Definimos las rutas de las imágenes de los personajes que se usaran para la función show_characters definida en characters_functions.py y SOLO PARA MOSTRAR

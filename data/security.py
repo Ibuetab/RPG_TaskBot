@@ -23,7 +23,6 @@ SECRET_WORD = os.getenv("SECRET_WORD") #Palabra secreta para encriptar el id del
 def generate_id(chat_id):
     bin_id = f"{chat_id}{SECRET_WORD}".encode()
     id = hashlib.sha256(bin_id).hexdigest()
-
     return id[:12]
 
 
@@ -38,3 +37,16 @@ def verify_user(func):
             return
         return await func(update,context,*args,**kwargs)
     return verify
+
+
+def has_character_selected(func):
+    @wraps(func)
+    async def verify_character(update:Update, context:CallbackContext, *args, **kwargs):
+        chat_id = update.effective_chat.id
+        user_id = generate_id(chat_id)
+
+        if user_id not in persistence.CHARACTER:
+            await context.bot.send_message(chat_id=chat_id, text=f"Debes elegir un personaje primero")
+            return
+        return await func(update,context,*args,**kwargs)
+    return verify_character
