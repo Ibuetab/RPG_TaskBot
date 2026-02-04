@@ -23,6 +23,8 @@ character_select = {
     female_mage_01: female_mage
 }
 
+characters_names = ["Guerrero", "Guerrera", "Mago", "Maga"]
+
 #Muestra el primer personaje de la lista, y a partir de ahi, los demás
 @verify_user
 async def show_characters(update: Update, context: CallbackContext):
