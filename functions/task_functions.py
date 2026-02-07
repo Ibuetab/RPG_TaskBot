@@ -6,7 +6,7 @@ from telegram.ext import CallbackContext, ConversationHandler
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 import data.persistence as persistence
-from data.security import generate_id
+from data.security import generate_id, verify_user, has_character_selected
 
 
 #TASK FUNCTIONS
@@ -17,6 +17,7 @@ from data.security import generate_id
 TASK_NAME = range(1)
 
 #Pregunta primero el nombre de la tarea
+@has_character_selected
 async def new_task(update:Update, context:CallbackContext):
     chat_id = update.effective_chat.id
 
