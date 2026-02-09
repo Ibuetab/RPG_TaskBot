@@ -36,7 +36,7 @@ async def start(update:Update, context):
             "completed_tasks": []
         }
 
-        await context.bot.send_message(chat_id = chat_id, text=f"Hola, {user}, utiliza el menú para ver una lista de comandos disponibles")
+        await context.bot.send_message(chat_id = chat_id, text=f"Hola, {user}. Elige a un personaje para comenzar tu aventura. Para ello, busca el comando /characters en el menú, pulsa sobre él en este mismo mensaje o escríbelo directamente")
         print(f"DEBUG: Nuevo usuario registrado: {user}")
 
 
