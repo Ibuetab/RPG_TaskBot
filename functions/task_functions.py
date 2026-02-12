@@ -10,7 +10,7 @@ from data.security import generate_id, verify_user, has_character_selected
 
 from functions.characters_functions import character_exp_up
 
-
+import asyncio
 #TASK FUNCTIONS
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -200,8 +200,13 @@ async def complete_task(update:Update, context:CallbackContext):
         return COMPLETE
     
 
-def auxiliar_exp_button(button: str) -> InlineKeyboardMarkup:
-    pass
+def auxiliar_exp_button(data: str) -> InlineKeyboardMarkup:
+    keyboard = [
+        [InlineKeyboardButton("+150 EXP", callback_data=data)]
+    ]
+
+    return InlineKeyboardMarkup(keyboard)
+
 
 async def complete_button(update:Update, context:CallbackContext):
     chat_id = update.effective_chat.id
@@ -226,15 +231,21 @@ async def complete_button(update:Update, context:CallbackContext):
             user_tasklist.remove(data)
             user_completed_tasks.append(data)
             character_exp_up(user_id)
+
+            nuevo_teclado = auxiliar_exp_button(data)
+            await query.edit_message_reply_markup(reply_markup=nuevo_teclado)
+            await asyncio.sleep(1)
             
 
         if not user_tasklist:
             await query.edit_message_text(f"✅ Ya no quedan tareas pendientes para completar")
             return ConversationHandler.END
 
+
         keyboard = []
         for task in user_tasklist:
             keyboard.append([InlineKeyboardButton(f"{task.capitalize()}", callback_data=task)])
+            
         
     keyboard.append([InlineKeyboardButton("Terminar", callback_data="CANCEL_DELETE")])
     reply_markup = InlineKeyboardMarkup(keyboard)
