@@ -108,6 +108,22 @@ async def characters_buttons(update: Update, context: CallbackContext):
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 
+async def character_status(update:Update,context):
+    chat_id = update.effective_chat.id
+    user_id = generate_id(chat_id)
+    
+    name = persistence.CHARACTER[user_id]['character_name']
+    type = persistence.CHARACTER[user_id]['character_type']
+    level = persistence.CHARACTER[user_id]['character_level']
+    exp = persistence.CHARACTER[user_id]['character_exp']
+
+    mensaje = f"Nombre: {name}" + "\n" + f"{type}" + "\n" + f"Nivel: {level}" + "\n" + f"EXP: {exp}"
+
+    await update.effective_chat.send_sticker(sticker=persistence.CHARACTER[user_id]['character_img'])
+    await update.effective_message.reply_text(mensaje)
+
+
+
 def character_exp_up(user_id):
     user_completed_tasks = persistence.TASKLIST[user_id]["completed_tasks"]
     contador = 0
@@ -121,9 +137,8 @@ def character_exp_up(user_id):
 def character_level_up(user_id, character_exp):
     
     current_level = persistence.CHARACTER[user_id]["character_level"]
-    
-    exp_needed = current_level * 1000 #EXP necesaria para el siguiente nivel
 
+    exp_needed = current_level * 1000 #EXP necesaria para el siguiente nivel
 
     if character_exp >= exp_needed: 
         new_level = current_level + 1
