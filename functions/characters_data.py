@@ -33,7 +33,7 @@ async def male_warrior(update:Update,context):
              'character_img': "assets/characters/warrior/male_warrior_01.webm",
              'character_type':"Guerrero",
              'character_exp': 0,
-             'character_level': 0
+             'character_level': 1
     }
 
     name = persistence.CHARACTER[user_id]['character_name']
@@ -58,7 +58,7 @@ async def female_warrior(update:Update,context):
              'character_img': "assets/characters/warrior/female_warrior_01.webm",
              'character_type':"Guerrera",
              'character_exp': 0,
-             'character_level': 0
+             'character_level': 1
     }
 
     name = persistence.CHARACTER[user_id]['character_name']
@@ -87,7 +87,7 @@ async def male_mage(update:Update,context):
              'character_img': "assets/characters/mage/male_mage_01.webm",
              'character_type':"Mago",
              'character_exp': 0,
-             'character_level': 0
+             'character_level': 1
     }
 
     name = persistence.CHARACTER[user_id]['character_name']
@@ -111,7 +111,7 @@ async def female_mage(update:Update,context):
              'character_img': "assets/characters/mage/female_mage_01.webm",
              'character_type':"Maga",
              'character_exp': 0,
-             'character_level': 0
+             'character_level': 1
     }
 
     name = persistence.CHARACTER[user_id]['character_name']
@@ -139,7 +139,7 @@ async def male_monk(update:Update,context):
              'character_img': "assets/characters/monk/male_monk_01.webm",
              'character_type':"Monje",
              'character_exp': 0,
-             'character_level': 0
+             'character_level': 1
     }
 
     name = persistence.CHARACTER[user_id]['character_name']
@@ -163,7 +163,7 @@ async def female_monk(update:Update,context):
              'character_img': "assets/characters/monk/female_monk_01.webm",
              'character_type':"Monja",
              'character_exp': 0,
-             'character_level': 0
+             'character_level': 1
     }
 
     name = persistence.CHARACTER[user_id]['character_name']
@@ -191,7 +191,7 @@ async def male_archer(update:Update,context):
              'character_img': "assets/characters/archer/male_archer_01.webm",
              'character_type':"Arquero",
              'character_exp': 0,
-             'character_level': 0
+             'character_level': 1
     }
 
     name = persistence.CHARACTER[user_id]['character_name']
@@ -215,7 +215,7 @@ async def female_archer(update:Update,context):
              'character_img': "assets/characters/archer/female_archer_01.webm",
              'character_type':"Arquera",
              'character_exp': 0,
-             'character_level': 0
+             'character_level': 1
     }
 
     name = persistence.CHARACTER[user_id]['character_name']

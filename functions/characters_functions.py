@@ -118,14 +118,14 @@ def character_exp_up(user_id):
     exp = str(contador)
     persistence.CHARACTER[user_id]["character_exp"] = contador
     
-def character_level_up(user_id):
-    current_exp = persistence.CHARACTER[user_id]["character_exp"] #EXP base del personaje
-    current_level = persistence.CHARACTER[user_id]["character_level"] #Nivel base del personaje
-
+def character_level_up(user_id, character_exp):
+    
+    current_level = persistence.CHARACTER[user_id]["character_level"]
+    
     exp_needed = current_level * 1000 #EXP necesaria para el siguiente nivel
 
 
-    if current_exp >= exp_needed: 
+    if character_exp >= exp_needed: 
         new_level = current_level + 1
         persistence.CHARACTER[user_id]["character_level"] = new_level
 

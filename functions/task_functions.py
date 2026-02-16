@@ -244,8 +244,9 @@ async def complete_button(update:Update, context:CallbackContext):
             await query.edit_message_text(f"✅ Ya no quedan tareas pendientes para completar")
 
             await context.bot.send_message(chat_id=chat_id, text=f"Has acumulado {character_exp} EXP")
-            
-            if character_level_up(user_id):
+
+
+            if character_level_up(user_id, character_exp):
                nuevo_nivel = persistence.CHARACTER[user_id]["character_level"]
                await context.bot.send_message(chat_id=chat_id, text=f"🎊 ¡Has subido al nivel {nuevo_nivel}! 🎊")
 
