@@ -230,11 +230,12 @@ async def complete_button(update:Update, context:CallbackContext):
         if data in user_tasklist:
             user_tasklist.remove(data)
             user_completed_tasks.append(data)
-            character_exp_up(user_id)
+            character_exp_up(user_id) #Sube de experiencia con cada tarea completada
 
+            #Se reescribe el teclado para mostrar un +150 EXP en cada boton de tarea completada cada medio segundo
             nuevo_teclado = auxiliar_exp_button(data)
             await query.edit_message_reply_markup(reply_markup=nuevo_teclado)
-            await asyncio.sleep(1)
+            await asyncio.sleep(0.5)
 
             
 
@@ -246,8 +247,8 @@ async def complete_button(update:Update, context:CallbackContext):
             await context.bot.send_message(chat_id=chat_id, text=f"Has acumulado {character_exp} EXP")
 
 
-            if character_level_up(user_id, character_exp):
-               nuevo_nivel = persistence.CHARACTER[user_id]["character_level"]
+            if character_level_up(user_id, character_exp): # == True. Devuelve false si la experiencia no llega para subir de nivel
+               nuevo_nivel = persistence.CHARACTER[user_id]["character_level"] #Se  vuelve a leer el JSON actualizado
                await context.bot.send_message(chat_id=chat_id, text=f"🎊 ¡Has subido al nivel {nuevo_nivel}! 🎊")
 
             return ConversationHandler.END

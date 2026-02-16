@@ -145,7 +145,7 @@ def character_level_up(user_id, character_exp):
         new_level = current_level + 1
         persistence.CHARACTER[user_id]["character_level"] = new_level
 
-        return True
+        return True #Devuelve true si se cumple la condición
     
     return False
 
